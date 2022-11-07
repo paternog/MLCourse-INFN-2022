@@ -8,10 +8,10 @@ import numpy as np
 import matplotlib.pyplot as plt 
 
 # create a plot of the invariant mass distribution
-def plotSignalvsBg(df, variable):
+def plotSignalvsBg(df, variable, nbins=50, XL=0, XH=3):
 
     ## hist is a tuple containing bins and counts foreach bin
-    hist_signal, hist_bkg = compute_hist(data=df, feature=variable, target='label', n_bins=50, x_lim=[0,3])
+    hist_signal, hist_bkg = compute_hist(data=df, feature=variable, target='label', n_bins=50, x_lim=[XL,XH])
 
     f, ax = plt.subplots()
     ax.hist(hist_signal[0][:-1], bins=hist_signal[0], weights=hist_signal[1], alpha=0.5, label='signal')
